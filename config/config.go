@@ -46,12 +46,18 @@ type RabbitMQConfig struct {
 	Queue    string
 }
 
+type SlackConfig struct {
+	Enabled    bool
+	WebhookURL string
+}
+
 type Config struct {
 	SMTP     SMTPConfig
 	Telegram TelegramConfig
 	API      APIConfig
 	Debug    DebugConfig
 	RabbitMQ RabbitMQConfig
+	Slack    SlackConfig
 }
 
 // LoadConfig carga el archivo parsewatchdog.conf
@@ -97,6 +103,11 @@ func LoadConfig(filePath string) (*Config, error) {
 	config.RabbitMQ.IP = rabbitSection.Key("ip").String()
 	config.RabbitMQ.Port = rabbitSection.Key("port").MustInt(5672)
 	config.RabbitMQ.Queue = rabbitSection.Key("queue").String()
+
+	// Leer configuración de Slack
+	slackSection := cfg.Section("slack")
+	config.Slack.Enabled = slackSection.Key("enabled").MustBool(false)
+	config.Slack.WebhookURL = slackSection.Key("webhook_url").String()
 
 	return config, nil
 }

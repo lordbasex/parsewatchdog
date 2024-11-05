@@ -27,4 +27,9 @@ func NotifyAll(cfg *config.Config, subject, message string) {
 			log.Println("Error sending RabbitMQ notification:", err)
 		}
 	}
+	if cfg.Slack.Enabled {
+		if err := NewSlackNotifier(cfg).Send(subject, message); err != nil {
+			log.Println("Error sending Slack notification:", err)
+		}
+	}
 }

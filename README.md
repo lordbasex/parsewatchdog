@@ -1,15 +1,15 @@
-# ParseWatchdog: The **SysAdmin's** best friend, always on guard.
+# ParseWatchDog: The **SysAdmin's** best friend, always on guard.
 
-ParseWatchdog is a log monitoring tool specifically designed to detect and alert on significant events in **Asterisk** systems, such as mass disconnection alerts. Currently, it focuses on monitoring SIP and PJSIP logs, specifically checking for "Unreachable" events, which indicate the disconnection of devices or users in the telephony network.
+ParseWatchDog is a log monitoring tool specifically designed to detect and alert on significant events in **Asterisk** systems, such as mass disconnection alerts. Currently, it focuses on monitoring SIP and PJSIP logs, specifically checking for "Unreachable" events, which indicate the disconnection of devices or users in the telephony network.
 
-When ParseWatchdog detects a mass disconnection event, it generates alerts that can be sent through multiple notification channels, including email, Telegram, an API endpoint, and RabbitMQ. This multi-channel alerting capability ensures that responsible teams are immediately notified through the most convenient means.
+When ParseWatchDog detects a mass disconnection event, it generates alerts that can be sent through multiple notification channels, including email, Telegram, an API endpoint, and RabbitMQ. This multi-channel alerting capability ensures that responsible teams are immediately notified through the most convenient means.
 
-Although its initial purpose is to monitor disconnection events in **Asterisk**, ParseWatchdog is designed with flexibility, allowing it to expand its capabilities in the future to monitor other events or services, adapting to the evolving needs of the telecommunications environment and ensuring comprehensive system supervision.
+Although its initial purpose is to monitor disconnection events in **Asterisk**, ParseWatchDog is designed with flexibility, allowing it to expand its capabilities in the future to monitor other events or services, adapting to the evolving needs of the telecommunications environment and ensuring comprehensive system supervision.
 
 ## Features
 
 - Monitors specified log file for disconnection patterns
-- Supports email, Telegram, API, and RabbitMQ notifications
+- Supports email, Telegram, API, RabbitMQ and Slack notifications
 - Customizable configuration file
 - Adjustable debug levels for granular logging
 
@@ -65,6 +65,10 @@ password=rabbitmq_password
 ip=192.168.0.10
 port=5672
 queue=parsewatchdog_notifications
+
+[slack]
+enabled = true
+webhook_url = https://hooks.slack.com/services/XXXXXXXXXXX/XXXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXX
 
 [debug]
 debug_level=1 # Levels: 0 = no logs, 1 = only critical logs, 2 = all logs
