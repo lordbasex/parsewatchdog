@@ -22,9 +22,9 @@ echo 'Variables de entorno:'\n\
 printenv | grep APP_VERSION\n\
 printenv | grep GIT_HASH\n\
 printenv | grep BUILD_DATE\n\
-env GOOS=linux GOARCH=i386 /usr/local/go/bin/go build -ldflags=\"-s -w -X 'github.com/lordbasex/parsewatchdog/config.Version=\$APP_VERSION' -X 'github.com/lordbasex/parsewatchdog/config.DaemonGitBuild=\$GIT_HASH' -X 'github.com/lordbasex/parsewatchdog/config.DaemonGitBuildDate=\$BUILD_DATE'\" -o /root/go/dist/parsewatchdog-x86_64 cmd/main.go \n\
+env GOOS=linux GOARCH=386 /usr/local/go/bin/go build -ldflags=\"-s -w -X 'github.com/lordbasex/parsewatchdog/config.Version=\$APP_VERSION' -X 'github.com/lordbasex/parsewatchdog/config.DaemonGitBuild=\$GIT_HASH' -X 'github.com/lordbasex/parsewatchdog/config.DaemonGitBuildDate=\$BUILD_DATE'\" -o /root/go/dist/parsewatchdog-i386 cmd/main.go \n\
 env GOOS=linux GOARCH=amd64 /usr/local/go/bin/go build -ldflags=\"-s -w -X 'github.com/lordbasex/parsewatchdog/config.Version=\$APP_VERSION' -X 'github.com/lordbasex/parsewatchdog/config.DaemonGitBuild=\$GIT_HASH' -X 'github.com/lordbasex/parsewatchdog/config.DaemonGitBuildDate=\$BUILD_DATE'\" -o /root/go/dist/parsewatchdog-x86_64 cmd/main.go \n\
-env GOOS=linux GOARCH=arm64 /usr/local/go/bin/go build -ldflags=\"-s -w -X 'github.com/lordbasex/parsewatchdog/config.Version=\$APP_VERSION' -X 'github.com/lordbasex/parsewatchdog/config.DaemonGitBuild=\$GIT_HASH' -X 'github.com/lordbasex/parsewatchdog/config.DaemonGitBuildDate=\$BUILD_DATE'\" -o /root/go/dist/parsewatchdog-x86_64 cmd/main.go \n\
+env GOOS=linux GOARCH=arm64 /usr/local/go/bin/go build -ldflags=\"-s -w -X 'github.com/lordbasex/parsewatchdog/config.Version=\$APP_VERSION' -X 'github.com/lordbasex/parsewatchdog/config.DaemonGitBuild=\$GIT_HASH' -X 'github.com/lordbasex/parsewatchdog/config.DaemonGitBuildDate=\$BUILD_DATE'\" -o /root/go/dist/parsewatchdog-arm64 cmd/main.go \n\
 /usr/bin/file /root/go/dist/parsewatchdog-i386 \n\
 /usr/bin/file /root/go/dist/parsewatchdog-x86_64 \n\
 /usr/bin/file /root/go/dist/parsewatchdog-arm64 \n\
