@@ -48,7 +48,7 @@ The configuration file (`/etc/parsewatchdog.conf`) controls ParseWatchdog's beha
 
 ```ini
 [smtp]
-enabled=false
+enabled=true
 host=smtp.gmail.com
 port=587
 user=your_email@gmail.com
