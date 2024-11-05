@@ -13,7 +13,15 @@ Although its initial purpose is to monitor disconnection events in **Asterisk**,
 - Customizable configuration file
 - Adjustable debug levels for granular logging
 
-## Installation
+## Quick Installation
+
+Install ParseWatchDog quickly using the following command:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/lordbasex/parsewatchdog/refs/heads/main/install.sh | bash
+```
+
+## Developer Installation
 
 1. Clone this repository:
     ```bash

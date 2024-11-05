@@ -118,7 +118,8 @@ create_service() {
     cat <<EOF > "$SERVICE_FILE"
 [Unit]
 Description=ParseWatchDog Service
-After=network.target
+Requires=network.target
+After=network.target network-online.target
 
 [Service]
 Type=simple
