@@ -9,7 +9,7 @@ Although its initial purpose is to monitor disconnection events in **Asterisk**,
 ## Features
 
 - Monitors specified log file for disconnection patterns
-- Supports email, Telegram, API, RabbitMQ and Slack notifications
+- Supports Email, Telegram, API, RabbitMQ and Slack notifications
 - Customizable configuration file
 - Adjustable debug levels for granular logging
 
@@ -165,6 +165,9 @@ Sends a JSON payload to a specified API endpoint.
 
 ## RabbitMQ
 Publishes a JSON message to a RabbitMQ queue. The URI for RabbitMQ is configured in the configuration file.
+
+## Slack
+Sends a message to a specified Slack channel via a webhook URL. The Slack webhook URL is configured in the configuration file.
 
 ## License
 This project is licensed under the MIT License.
