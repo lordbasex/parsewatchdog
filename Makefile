@@ -61,6 +61,7 @@ build:
 		-f ./docker/Dockerfile .
 
 run:
+	rm -fr dist/parsewatchdog-*
 	docker run --rm --privileged \
 		-v ./:/root/go/src/parsewatchdog \
 		-v ./:/usr/local/go/src/parsewatchdog \
