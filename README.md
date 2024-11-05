@@ -1,4 +1,4 @@
-# ParseWatchDog: Critical Event Monitoring System for **Asterisk** Logs
+# ParseWatchDog: ParseWatchdog: The **SysAdmin's** best friend, always on guard.
 
 ParseWatchdog is a log monitoring tool specifically designed to detect and alert on significant events in **Asterisk** systems, such as mass disconnection alerts. Currently, it focuses on monitoring SIP and PJSIP logs, specifically checking for "Unreachable" events, which indicate the disconnection of devices or users in the telephony network.
 
