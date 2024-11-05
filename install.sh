@@ -16,6 +16,11 @@ DOWNLOAD_URL_AMD64="$BASE_URL/parsewatchdog-x86_64"
 DOWNLOAD_URL_ARM64="$BASE_URL/parsewatchdog-arm64"
 DOWNLOAD_URL_I386="$BASE_URL/parsewatchdog-i386"
 
+# Stop Daemon
+stop_daemon() {
+    systemctl start parsewatchdog.service
+}
+
 # Function to check OS and architecture and set the appropriate download URL
 check_os_and_arch() {
     # Check if the OS is Linux
@@ -151,6 +156,7 @@ main() {
         exit 1
     fi
 
+    stop_daemon
     check_os_and_arch
     download_binary
     create_config
