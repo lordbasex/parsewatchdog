@@ -18,7 +18,8 @@ DOWNLOAD_URL_I386="$BASE_URL/parsewatchdog-i386"
 
 # Stop Daemon
 stop_daemon() {
-    systemctl start parsewatchdog.service
+    systemctl stop parsewatchdog.service
+    rm -fr $INSTALL_DIR/parsewatchdog*
 }
 
 # Function to check OS and architecture and set the appropriate download URL
