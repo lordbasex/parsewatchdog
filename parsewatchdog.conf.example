@@ -1,0 +1,41 @@
+# ParseWatchDog Configuration File
+
+[smtp]
+# Settings for email notifications (SMTP)
+enabled=false
+host=smtp.gmail.com
+port=587
+user=your_email@gmail.com
+pass=your_email_password
+recipients=recipient1@example.com,recipient2@example.com
+
+[telegram]
+# Settings for Telegram notifications
+enabled=false
+token=your_telegram_bot_token
+chat_id=123456789
+
+[api]
+# Settings for notifications via API endpoint
+enabled=false
+endpoint=https://example.com/notify
+api_key=your_api_key
+
+[rabbitmq]
+# Settings for notifications via RabbitMQ
+enabled=false
+type=amqp
+user=rabbitmq_user
+password=rabbitmq_password
+ip=192.168.0.10
+port=5672
+queue=parsewatchdog_notifications
+
+[slack]
+# Settings for Slack notifications
+enabled=false
+webhook_url=https://hooks.slack.com/services/XXXXXXXXXXX/XXXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXX
+
+[debug]
+# Debug level configuration
+debug_level=1 # Levels: 0 = no logs, 1 = only critical logs, 2 = all logs for full debugging

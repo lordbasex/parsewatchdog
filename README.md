@@ -40,7 +40,7 @@ The configuration file (`/etc/parsewatchdog.conf`) controls ParseWatchdog's beha
 
 ```ini
 [smtp]
-enabled=true
+enabled=false
 host=smtp.gmail.com
 port=587
 user=your_email@gmail.com
@@ -67,7 +67,7 @@ port=5672
 queue=parsewatchdog_notifications
 
 [slack]
-enabled = true
+enabled = false
 webhook_url = https://hooks.slack.com/services/XXXXXXXXXXX/XXXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXX
 
 [debug]

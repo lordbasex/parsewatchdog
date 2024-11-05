@@ -15,13 +15,56 @@ import (
 
 var lastAlertTimestamps = make(map[string]struct{})
 
+const defaultConfigPath = "/etc/parsewatchdog.conf"
+const defaultConfigContent = `
+[smtp]
+enabled=false
+host=smtp.gmail.com
+port=587
+user=your_email@gmail.com
+pass=your_email_password
+recipients=recipient1@example.com,recipient2@example.com
+
+[telegram]
+enabled=false
+token=your_telegram_bot_token
+chat_id=123456789
+
+[api]
+enabled=false
+endpoint=https://example.com/notify
+api_key=your_api_key
+
+[rabbitmq]
+enabled=false
+type=amqp
+user=rabbitmq_user
+password=rabbitmq_password
+ip=192.168.0.10
+port=5672
+queue=parsewatchdog_notifications
+
+[slack]
+enabled=false
+webhook_url=https://hooks.slack.com/services/XXXXXXXXXXX/XXXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXX
+
+[debug]
+debug_level=1
+`
+
 func main() {
-	log.SetFlags(log.LstdFlags | log.Lshortfile)
+	//log.SetFlags(log.LstdFlags | log.Lshortfile)
 
 	fmt.Println("Starting ParseWatchdog...")
 
+	// Ensure configuration file exists, creating it with default content if necessary
+	err := createDefaultConfig(defaultConfigPath, defaultConfigContent)
+	if err != nil {
+		log.Fatalf("Error creating default config: %v", err)
+	}
+
 	// Load configuration
-	cfg, err := config.LoadConfig("/etc/parsewatchdog.conf")
+	cfg, err := config.LoadConfig(defaultConfigPath)
 	if err != nil {
 		log.Fatalf("Error loading config: %v", err)
 	}
@@ -45,6 +88,26 @@ func main() {
 		checkLogForUnreachable(file, cfg)
 		time.Sleep(1 * time.Second)
 	}
+}
+
+func createDefaultConfig(path string, content string) error {
+	// Check if the config file already exists
+	if _, err := os.Stat(path); os.IsNotExist(err) {
+		// Create the config file with default content
+		file, err := os.Create(path)
+		if err != nil {
+			return fmt.Errorf("failed to create config file: %w", err)
+		}
+		defer file.Close()
+
+		_, err = file.WriteString(content)
+		if err != nil {
+			return fmt.Errorf("failed to write default config content: %w", err)
+		}
+
+		log.Printf("Default configuration created at %s", path)
+	}
+	return nil
 }
 
 func logMessage(cfg *config.Config, level int, message string) {
