@@ -84,7 +84,45 @@ For production, you may want to compile the binary:
 ```bash
 ./dist/parsewatchdog-x86_64
 ```	
-	
+
+### Create Service (systemctl)
+
+```bash
+cp -fra ./dist/parsewatchdog-x86_64 /usr/local/bin/parsewatchdog-x86_64
+chmod 777 /usr/local/bin/parsewatchdog-x86_64
+```
+
+```bash
+cat > /etc/systemd/system/parsewatchdog.service <<ENDLINE
+[Unit]
+Description=ParseWatchDog
+Requires=network.target
+After=network.target network-online.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/usr/local/bin/
+ExecStart=/usr/local/bin/parsewatchdog-x86_64
+Restart=on-failure
+
+# Redirige logs de salida estándar a un archivo
+StandardOutput=append:/var/log/parsewatchdog.log
+StandardError=append:/var/log/parsewatchdog.log
+
+[Install]
+WantedBy=multi-user.target
+ENDLINE
+```
+
+```bash
+systemctl enable parsewatchdog.service 
+systemctl start parsewatchdog.service
+systemctl status parsewatchdog.service 
+```
+
+ 
 ## Debug Levels
 
 * 0: No logs displayed
