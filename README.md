@@ -1,10 +1,10 @@
 # ParseWatchDog: The **SysAdmin's** best friend, always on guard.
 
-ParseWatchDog is a log monitoring tool specifically designed to detect and alert on significant events in **Asterisk** systems, such as mass disconnection alerts. Currently, it focuses on monitoring SIP and PJSIP logs, specifically checking for "Unreachable" events, which indicate the disconnection of devices or users in the telephony network.
+**ParseWatchDog** is a log monitoring tool specifically designed to detect and alert on significant events in **Asterisk** systems, such as mass disconnection alerts. Currently, it focuses on monitoring **SIP** and **PJSIP** logs, specifically checking for **"Unreachable"** events, which indicate the disconnection of devices or users in the telephony network.
 
-When ParseWatchDog detects a mass disconnection event, it generates alerts that can be sent through multiple notification channels, including email, Telegram, an API endpoint, and RabbitMQ. This multi-channel alerting capability ensures that responsible teams are immediately notified through the most convenient means.
+When **ParseWatchDog** detects a mass disconnection event, it generates alerts that can be sent through multiple notification channels, including **email**, **Telegram**, an **API** endpoint, **RabbitMQ** and **Slack**. This multi-channel alerting capability ensures that responsible teams are immediately notified through the most convenient means.
 
-Although its initial purpose is to monitor disconnection events in **Asterisk**, ParseWatchDog is designed with flexibility, allowing it to expand its capabilities in the future to monitor other events or services, adapting to the evolving needs of the telecommunications environment and ensuring comprehensive system supervision.
+Although its initial purpose is to monitor disconnection events in **Asterisk**, **ParseWatchDog** is designed with flexibility, allowing it to expand its capabilities in the future to monitor other events or services, adapting to the evolving needs of the telecommunications environment and ensuring comprehensive system supervision.
 
 ## Features
 
