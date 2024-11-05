@@ -166,7 +166,11 @@ Sends a JSON payload to a specified API endpoint.
 ## RabbitMQ
 Publishes a JSON message to a RabbitMQ queue. The URI for RabbitMQ is configured in the configuration file.
 
-License
-This project is licensed under the MIT License. ""
+## License
+This project is licensed under the MIT License.
 
-Saving the content to a README.md file
+```
+Copyright (c) 2024 Federico Pereira
+```
+
+Save this content in `README.md` for your project. This includes the license section formatted as requested at the end.
