@@ -1,5 +1,8 @@
 # ParseWatchDog: The **SysAdmin's** best friend, always on guard.
 
+![ParseWatchdog](https://github.com/lordbasex/parsewatchdog/blob/main/logoParseWatchdog.jpg)
+
+
 **ParseWatchDog** is a log monitoring tool specifically designed to detect and alert on significant events in **Asterisk** systems, such as mass disconnection alerts. Currently, it focuses on monitoring **SIP** and **PJSIP** logs, specifically checking for **"Unreachable"** events, which indicate the disconnection of devices or users in the telephony network.
 
 When **ParseWatchDog** detects a mass disconnection event, it generates alerts that can be sent through multiple notification channels, including **email**, **Telegram**, an **API** endpoint, **RabbitMQ** and **Slack**. This multi-channel alerting capability ensures that responsible teams are immediately notified through the most convenient means.
